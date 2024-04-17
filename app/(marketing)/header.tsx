@@ -26,15 +26,17 @@ const Header = () => {
 
         <ClerkLoaded>
           <SignedIn>
-            <UserButton />
+            <UserButton afterSignOutUrl="/" />
           </SignedIn>
-          <SignInButton
-            mode="modal"
-            afterSignInUrl="/learn"
-            afterSignUpUrl="/learn"
-          >
-            <Button variant="ghost">Login</Button>
-          </SignInButton>
+          <SignedOut>
+            <SignInButton
+              mode="modal"
+              afterSignInUrl="/learn"
+              afterSignUpUrl="/learn"
+            >
+              <Button variant="ghost">Login</Button>
+            </SignInButton>
+          </SignedOut>
         </ClerkLoaded>
       </div>
       <ClerkLoading>
