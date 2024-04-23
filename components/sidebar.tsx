@@ -52,7 +52,7 @@ const Sidebar = ({ className }: Props) => {
         </Link>
         <p>Lingo</p>
       </div>
-      <div className="flex flex-1 flex-col gap-y-4 py-6">
+      <div className="flex flex-1 flex-col gap-y-2 py-6">
         {sideBarItemProps.map((item, index) => {
           return (
             <SidebarItem
