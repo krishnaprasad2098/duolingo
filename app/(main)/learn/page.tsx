@@ -3,13 +3,19 @@ import StickyWrapper from "@/components/stickywrapper";
 import React from "react";
 import Header from "./header";
 import UserProgress from "@/components/userprogress";
-import { getUserProgress } from "@/db/queries";
+import { getUnits, getUserProgress } from "@/db/queries";
 import { redirect } from "next/navigation";
+import { units } from "@/db/schema";
+import Unit from "./unit";
 
 const LearnPage = async () => {
   const userProgressData = getUserProgress();
+  const unitsData = getUnits();
 
-  const [userProgress] = await Promise.all([userProgressData]);
+  const [userProgress, units] = await Promise.all([
+    userProgressData,
+    unitsData,
+  ]);
   if (!userProgress || !userProgress.activeCourse) {
     redirect("/courses");
   }
@@ -17,14 +23,29 @@ const LearnPage = async () => {
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWrapper>
         <UserProgress
-          activeCourse={{ title: "Spanish", imageSrc: "/es.svg" }}
-          hearts={5}
-          points={100}
+          activeCourse={userProgress.activeCourse}
+          hearts={userProgress.hearts}
+          points={userProgress.points}
           hasActiveSubscription={false}
         />
       </StickyWrapper>
       <FeedWrapper>
-        <Header title="Spanish" />
+        <Header title={userProgress.activeCourse.title} />
+        {units.map((unit) => {
+          return (
+            <div className="mb-10" key={unit.id}>
+              <Unit
+                id={unit.id}
+                order={unit.order}
+                description={unit.description}
+                title={unit.title}
+                lessons={unit.lessons}
+                activeLesson={undefined}
+                activeLessonPercentage={0}
+              />
+            </div>
+          );
+        })}
       </FeedWrapper>
     </div>
   );
