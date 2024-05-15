@@ -35,7 +35,33 @@ const ExitModal = () => {
           <DialogTitle className="text-2xls text-center font-bold">
             Wait,don&apos;t go!!
           </DialogTitle>
+          <DialogDescription className="text-center text-base">
+            You&apos;re about to leave the lesson,Are you sure ?
+          </DialogDescription>
         </DialogHeader>
+        <DialogFooter className="mx-auto mb-4">
+          <div className="flex w-full flex-col gap-y-4">
+            <Button
+              variant="default"
+              className="w-full"
+              size="default"
+              onClick={close}
+            >
+              Keep Learning
+            </Button>
+            <Button
+              variant="destructive"
+              className="w-full"
+              size="default"
+              onClick={() => {
+                close();
+                router.push("/learn");
+              }}
+            >
+              End Session
+            </Button>
+          </div>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
