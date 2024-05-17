@@ -2,6 +2,7 @@
   "cSpell.words": [
     "clsx",
     "duolingo",
+    "leaderboard",
     "lucide",
     "neondatabase",
     "nextjs",
@@ -9,6 +10,7 @@
     "sonner",
     "tailwindcss",
     "trpc",
+    "upsert",
     "zustand"
   ]
 }
