@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 const Header = () => {
   return (
     <div>
-      <div className="flex py-3 justify-between px-9">
+      <div className="flex justify-between px-9 py-3">
         <div className=" flex items-center justify-start gap-2">
           <Image
             src="./mascot.svg"
@@ -39,9 +39,9 @@ const Header = () => {
           </SignedOut>
         </ClerkLoaded>
       </div>
-      <ClerkLoading>
+      {/* <ClerkLoading>
         <Loader className="animate-spin h-5 w-5" />
-      </ClerkLoading>
+      </ClerkLoading> */}
     </div>
   );
 };
