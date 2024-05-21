@@ -28,7 +28,7 @@ const List = ({ courses, activeCourseId }: Props) => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-2 pt-6 md:grid-cols-3 lg:min-w-[217px] lg:grid-cols-[repeat(auto-fill,minmax(210px,1fr))] lg:gap-4">
+    <div className="grid grid-cols-2 gap-2 pt-6 sm:pb-4 md:grid-cols-3 lg:min-w-[217px] lg:grid-cols-[repeat(auto-fill,minmax(210px,1fr))] lg:gap-4">
       {courses.map((course) => {
         return (
           <Card
