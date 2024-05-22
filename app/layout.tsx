@@ -3,6 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
+import ExitModal from "@/components/modals/exit-modal";
+import HeartsModal from "@/components/modals/hearts-modals";
+import PracticeModal from "@/components/modals/practice-modal";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,8 +22,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={inter.className} suppressHydrationWarning={true}>
           <Toaster />
+          <ExitModal />
+          <HeartsModal />
+          <PracticeModal />
           {children}
         </body>
       </html>
