@@ -19,7 +19,7 @@ const sideBarItemProps = [
   {
     label: "Leader Board",
     iconSrc: "/leaderboard.svg",
-    href: "/learnboard",
+    href: "/leaderboard",
   },
   {
     label: "Quests",
